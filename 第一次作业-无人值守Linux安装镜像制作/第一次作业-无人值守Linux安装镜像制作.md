@@ -42,7 +42,7 @@
 		
 *  4.下图表明已成功将iso文件中内容同步到工作目录
 	
-	![](1.PNG)
+	![](1.png)
 
         # 编辑Ubuntu安装引导界面增加一个新菜单项入口	
 		vim isolinux/txt.cfg
@@ -53,23 +53,23 @@
 			  append  file=/cdrom/preseed/ubuntu-server-autoinstall.seed debian-installer/locale=en_US console-setup/layoutcode=us keyboard-configuration/layoutcode=us console-setup/ask_detect=false localechooser/translation/warn-light=true localechooser/translation/warn-severe=true initrd=/install/initrd.gz root=/dev/ram rw quiet
 	
 
-    ![](2.PNG)
+    ![](2.png)
 
 * 5.将定制好的ubuntu-server-autoinstall.seed文件保存到刚才创建的工作目录~/cd/preseed/ubuntu-server-autoinstall.seed
 
     * 修改前后的文件对比 
 
-	![](3.PNG)
+	![](3.png)
 	
 	* 直接上传失败，传到其它文件夹后拷贝到相应文件夹
 	
-	![](4.PNG)
+	![](4.png)
 
-    ![](6.PNG)
+    ![](6.png)
 	
 * 6.修改isolinux/isolinux.cfg，增加内容timeout 10
 	
-	![](7.PNG)
+	![](7.png)
 * 7.生成iso文件
 
 		# 重新生成md5sum.txt
@@ -89,13 +89,13 @@
 
     * 安装mkisofs，运行脚本
     
-    ![](8.PNG)
+    ![](8.png)
     
-    ![](9.PNG)
+    ![](9.png)
 
 * 8.生成好了.iso，然后在psftp中用get拷出来
 
-	![](10.PNG)
+	![](10.png)
 
 ## 遇到的问题
 
