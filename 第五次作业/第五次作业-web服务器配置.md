@@ -39,11 +39,9 @@
 
 [解决php参考文档](https://note.youdao.com/)
 
-![image](7.png)
-
 按照文档对nginx配置文件进行修改后，将listen改为listen=/run/php/php7.0-fpm.sock,php环境配置成功
 
-![image](8.png)
+![image](7.png)
 
 显示没有mysql扩展，查询后运行命令
 
@@ -55,29 +53,31 @@ service nginx restart
 
 完成安装，重启服务，成功
 
-![image](9.png)
+![image](8.png)
 
 出现新的错误，数据库连接出错
 
-![image](10.png)
+![image](9.png)
 
 查看配置文件后发现是因为之前在解决php的时候重新复制了配置文件，导致其中的配置被覆盖，修改配置文件后，数据库连接成功
 
-![image](11.png)
+![image](10.png)
 
 设置用户名密码，登录，弹出没有权限访问
+
+![image](11.png)
+
+按照安装Wordpress参考文档重新进行权限设置，发现是无法访问/wp-admin/文件夹，但其中的页面可以访问，查看nginx配置文件后发现默认访问文件少了index.php，导致返回403错误，修改后成功
 
 ![image](12.png)
 
 ![image](13.png)
 
-按照安装Wordpress参考文档重新进行权限设置，发现是无法访问/wp-admin/文件夹，但其中的页面可以访问，查看nginx配置文件后发现默认访问文件少了index.php，导致返回403错误，修改后成功
+设置反向代理
 
 ![image](14.png)
 
 ![image](15.png)
-
-设置反向代理
 
 ### 安装DVWA
 
@@ -181,6 +181,6 @@ ab -n 1000 -c 1000 http://dvwa.sec.cuc.edu.cn/
 
 wp.sec.cuc.edu.cn实验成功，dvwa.sec.cuc.edu.cn用ab命令失败，手动修改为单ip每秒限制访问1次后，手动刷新限制成功。
 
-* 进制curl访问
+* 限制curl访问
 
 ![image](36.png)
